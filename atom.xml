@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>浅安时光的博客</title>
+  
+  <subtitle>浅安时光</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://lx1255.com/"/>
+  <updated>2019-12-08T14:24:00.339Z</updated>
+  <id>https://lx1255.com/</id>
+  
+  <author>
+    <name>浅安时光</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>article title</title>
+    <link href="https://lx1255.com/2019/12/08/article-title/"/>
+    <id>https://lx1255.com/2019/12/08/article-title/</id>
+    <published>2019-12-08T14:24:00.000Z</published>
+    <updated>2019-12-08T14:24:00.339Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
