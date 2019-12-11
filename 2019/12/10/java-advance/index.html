@@ -4,11 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="article title, Java LeetCode">
+    <meta name="keywords" content="Java高级知识, Java LeetCode">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
     <meta name="360-site-verification" content>
-    <meta name="description" content="article title | 浅安时光的博客">
+    <meta name="description" content="集合框架
+java.util.HashSet 底层的实现其实是一个java.util.HashMap 支持。
+HashSet集合存储数据的结构（哈希表）在JDK1.8之前，哈希表底层采用数组+链表实现，即使用链表处理冲突，同一hash值的链">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>article title | 浅安时光的博客</title>
+    <title>Java高级知识 | 浅安时光的博客</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -274,13 +276,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/25.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        article title
+                        Java高级知识
                     </div>
                 </div>
             </div>
@@ -390,11 +392,28 @@
                 <div class="col s7">
                     
                     <div class="article-tag">
-                        <span class="chip bg-color">无标签</span>
+                        
+                        <a href="/tags/Java/" target="_blank">
+                            <span class="chip bg-color">Java</span>
+                        </a>
+                        
+                        <a href="/tags/知识总结/" target="_blank">
+                            <span class="chip bg-color">知识总结</span>
+                        </a>
+                        
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                        <a href="/categories/Java/" class="post-category" target="_blank">
+                            Java
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -402,7 +421,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-08
+                    2019-12-10
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -416,14 +435,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    11 分
                 </div>
                 
                 
@@ -439,7 +458,327 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="集合框架"><a href="#集合框架" class="headerlink" title="集合框架"></a>集合框架</h1><ul>
+<li><code>java.util.HashSet</code> 底层的实现其实是一个<code>java.util.HashMap</code> 支持。</li>
+<li>HashSet集合存储数据的结构（哈希表）<br>在JDK1.8之前，哈希表底层采用数组+链表实现，即使用链表处理冲突，同一hash值的链表都存储在一个链表里。但是当位于一个桶中的元素较多，即hash值相等的元素较多时，通过key值依次查找的效率较低。而JDK1.8中，哈希表存储采用数组+链表+红黑树实现，当链表长度超过阈值（8）时，将链表转换为红黑树，这样大大减少了查找时间。简单的来说，哈希表是由数组+链表+红黑树（JDK1.8增加了红黑树部分）实现的，如下图所示。<br><img src="https://i.imgur.com/N5szJnF.jpg" alt="哈希表"></li>
+<li>可变参数。同样是代表数组，但是在调用这个带有可变参数的方法时，不用创建数组(这就是简单之处)，直接将数组中的元素作为实际参数进行传递，其实编译成的class文件，将这些元素先封装到一个数组中，在进行传递。这些动作都在编译.class文件时，自动完成了。如果在方法书写时，这个方法拥有多参数，参数中包含可变参数，可变参数一定要写在参数列表的末尾位置。</li>
+<li><a href="https://www.jianshu.com/p/63e76826e852" title="集合框架" target="_blank" rel="noopener">https://www.jianshu.com/p/63e76826e852</a></li>
+<li>使用put方法时，若指定的键(key)在集合中没有，则没有这个键对应的值，返回null，并把指定的键值添加到集合中；若指定的键(key)在集合中存在，则返回值为集合中键对应的值（该值为替换前的值），并把指定键所对应的值，替换成指定的新值。</li>
+<li>Comparable 和 Comparator 的对比<br>Comparable 更像是自然排序<br>Comparator 更像是定制排序<br>同时存在时采用 Comparator（定制排序）的规则进行比较。对于一些普通的数据类型（比如 String, Integer, Double…），它们默认实现了Comparable 接口，实现了 compareTo 方法，我们可以直接使用。而对于一些自定义类，它们可能在不同情况下需要实现不同的比较策略，我们可以新创建 Comparator 接口，然后使用特定的 Comparator 实现进行比较。<br><img src="https://i.imgur.com/khQN4IB.png" alt="对比"></li>
+</ul>
+<hr>
+<h1 id="异常和线程"><a href="#异常和线程" class="headerlink" title="异常和线程"></a>异常和线程</h1><ul>
+<li>异常的分类<br><img src="https://i.imgur.com/vQAtiaH.png" alt="异常分类"></li>
+<li>多线程执行时，在栈内存中，其实每一个执行线程都有一片自己所属的栈内存空间。进行方法的压栈和弹栈。当执行线程的任务结束了，线程自动在栈内存中释放了。但是当所有的执行线程都结束了，那么进程就结束了。</li>
+<li>Thread和Runnable的区别<br><img src="https://i.imgur.com/842axaw.png" alt="Thread和Runnable的区别"></li>
+<li>线程安全问题都是由全局变量及静态变量引起的。若每个线程中对全局变量、静态变量只有读操作，而无写操作，一般来说，这个全局变量是线程安全的；若有多个线程同时执行写操作，一般都需要考虑线程同步，否则的话就可能影响线程安全。</li>
+<li>线程同步。<ol>
+<li>同步代码块</li>
+<li>同步方法：对于非static方法,同步锁就是this。对于static方法,我们使用当前方法所在类的字节码对象(类名.class)。</li>
+<li>锁机制</li>
+</ol>
+</li>
+<li>线程状态<br><img src="https://i.imgur.com/bkpUhty.png" alt="线程状态"><br><img src="https://i.imgur.com/h30OsO3.png" alt="状态转移"></li>
+<li>线程池：其实就是一个容纳多个线程的容器，其中的线程可以反复使用，省去了频繁创建线程对象的操作，无需反复创建线程而消耗过多资源。</li>
+<li>Lambda省略：<ol>
+<li>小括号内参数的类型可以省略；</li>
+<li>如果小括号内有且仅有一个参，则小括号可以省略；</li>
+<li>如果大括号内有且仅有一个语句，则无论是否有返回值，都可以省略大括号、return关键字及语句分号。<br><img src="https://i.imgur.com/rCZGMrn.png" alt="注意事项"></li>
+</ol>
+</li>
+</ul>
+<hr>
+<h1 id="File类和IO流"><a href="#File类和IO流" class="headerlink" title="File类和IO流"></a>File类和IO流</h1><ul>
+<li><code>public String[] list()</code> ：返回一个String数组，表示该File目录中的所有子文件或目录。</li>
+<li><code>public File[] listFiles()</code> ：返回一个File数组，表示该File目录中的所有的子文件或目录。<ul>
+<li><code>java.io.FileFilter</code>是一个接口，是File的过滤器。 该接口的对象可以传递给File类的<code>listFiles(FileFilter)</code>作为参数，接口中只有一个方法。<code>boolean accept(File pathname)</code>：测试pathname是否应该包含在当前File目录中，符合则返回true。</li>
+</ul>
+</li>
+<li>分类<br><img src="https://i.imgur.com/PS1aD9a.jpg" alt="分类"></li>
+<li><code>java.util.Properties</code> 继承于<code>Hashtable</code> ，来表示一个持久的属性集。它使用键值结构存储数据，每个键及其对应值都是一个字符串。该类也被许多Java类使用，比如获取系统属性时， <code>System.getProperties</code> 方法就是返回一个<code>Properties</code>对象。</li>
+<li>序列化<br><img src="https://i.imgur.com/DIvNllw.png" alt="序列化"></li>
+</ul>
+<hr>
+<h1 id="函数式接口"><a href="#函数式接口" class="headerlink" title="函数式接口"></a>函数式接口</h1><ul>
+<li><code>java.util.function.Supplier&lt;T&gt;</code> 接口仅包含一个无参的方法： <code>T get()</code> 。用来获取一个泛型参数指定类型的对象数据。由于这是一个函数式接口，这也就意味着对应的Lambda表达式需要“对外提供”一个符合泛型类型的对象数据。</li>
+<li><code>java.util.function.Consumer&lt;T&gt;</code> 接口则正好与Supplier接口相反，它不是生产一个数据，而是消费一个数据，其数据类型由泛型决定。    1. Consumer接口中包含抽象方法<code>void accept(T t)</code> ，意为消费一个指定泛型的数据。<ol start="2">
+<li>如果一个方法的参数和返回值全都是Consumer 类型，那么就可以实现效果：消费数据的时候，首先做一个操作，然后再做一个操作，实现组合。而这个方法就是Consumer接口中的default方法<code>andThen</code></li>
+</ol>
+</li>
+<li>有时候我们需要对某种类型的数据进行判断，从而得到一个boolean值结果。这时可以使用<code>java.util.function.Predicate&lt;T&gt;</code> 接口。<ol>
+<li>抽象方法。<code>boolean test(T t)</code> 。用于条件判断。</li>
+<li>默认方法。and、or、negate</li>
+</ol>
+</li>
+<li><code>java.util.function.Function&lt;T,R&gt;</code> 接口用来根据一个类型的数据得到另一个类型的数据，前者称为前置条件，后者称为后置条件。Function的前置条件泛型和后置条件泛型可以相同。<ol>
+<li>Function 接口中最主要的抽象方法为： <code>R apply(T t)</code> ，根据类型T的参数获取类型R的结果。</li>
+<li>Function 接口中有一个默认的<code>andThen</code> 方法，用来进行组合操作。</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h1 id="Stream流"><a href="#Stream流" class="headerlink" title="Stream流"></a>Stream流</h1><ul>
+<li>获取流<ol>
+<li>所有的Collection 集合都可以通过stream 默认方法获取流；</li>
+<li>Stream 接口的静态方法of 可以获取数组对应的流。</li>
+</ol>
+</li>
+<li>常用方法<ol>
+<li><code>void forEach(Consumer&lt;? super T&gt; action);</code></li>
+<li><code>Stream&lt;T&gt; filter(Predicate&lt;? super T&gt; predicate);</code>。可以通过filter 方法将一个流转换成另一个子集流。</li>
+<li><code>&lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T, ? extends R&gt; mapper);</code>将流中的元素映射到另一个流中，可以使用map 方法。</li>
+<li><code>long count();</code>。正如旧集合Collection 当中的size 方法一样，流提供count 方法来数一数其中的元素个数。</li>
+<li><code>Stream&lt;T&gt; limit(long maxSize);</code>。limit 方法可以对流进行截取，只取用前n个。</li>
+<li><code>Stream&lt;T&gt; skip(long n);</code>。如果希望跳过前几个元素，可以使用skip 方法获取一个截取之后的新流。</li>
+<li><code>static &lt;T&gt; Stream&lt;T&gt; concat(Stream&lt;? extends T&gt; a, Stream&lt;? extends T&gt; b)</code>。合并成为一个流。</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><ul>
+<li><p>获取Class对象的方式：</p>
+<ol>
+<li>Class.forName(“全类名”)：将字节码文件加载进内存，返回Class对象<ul>
+<li>多用于配置文件，将类名定义在配置文件中。读取文件，加载类</li>
+</ul>
+</li>
+<li>类名.class：通过类名的属性class获取<ul>
+<li>多用于参数的传递</li>
+</ul>
+</li>
+<li>对象.getClass()：getClass()方法在Object类中定义着。<ul>
+<li>多用于对象的获取字节码的方式</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>结论：<br>  同一个字节码文件(*.class)在一次程序运行过程中，只会被加载一次，不论通过哪一种方式获取的Class对象都是同一个。</li>
+</ul>
+</li>
+<li><p>Class对象功能：</p>
+<ul>
+<li><p>获取功能：</p>
+<ol>
+<li><p>获取成员变量们</p>
+<ul>
+<li><p>Field[] getFields() ：获取所有public修饰的成员变量</p>
+</li>
+<li><p>Field getField(String name)   获取指定名称的 public修饰的成员变量</p>
+</li>
+<li><p>Field[] getDeclaredFields()  获取所有的成员变量，不考虑修饰符</p>
+</li>
+<li><p>Field getDeclaredField(String name)  </p>
+</li>
+</ul>
+</li>
+<li><p>获取构造方法们</p>
+<ul>
+<li><p>Constructor&lt;?&gt;[] getConstructors()  </p>
+</li>
+<li><p>Constructor<t> getConstructor(类&lt;?&gt;… parameterTypes)  </t></p>
+</li>
+<li><p>Constructor<t> getDeclaredConstructor(类&lt;?&gt;… parameterTypes)  </t></p>
+</li>
+<li><p>Constructor&lt;?&gt;[] getDeclaredConstructors()  </p>
+</li>
+</ul>
+</li>
+<li><p>获取成员方法们：</p>
+<ul>
+<li><p>Method[] getMethods()  </p>
+</li>
+<li><p>Method getMethod(String name, 类&lt;?&gt;… parameterTypes)  </p>
+</li>
+<li><p>Method[] getDeclaredMethods()  </p>
+</li>
+<li><p>Method getDeclaredMethod(String name, 类&lt;?&gt;… parameterTypes)  </p>
+</li>
+</ul>
+</li>
+<li><p>获取全类名    </p>
+<ul>
+<li>String getName() </li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Field：成员变量</p>
+<ul>
+<li><p>操作：</p>
+<ol>
+<li><p>设置值</p>
+<ul>
+<li>void set(Object obj, Object value)  </li>
+</ul>
+</li>
+<li><p>获取值</p>
+<ul>
+<li>get(Object obj) </li>
+</ul>
+</li>
+<li><p>忽略访问权限修饰符的安全检查</p>
+<ul>
+<li>setAccessible(true):暴力反射</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Constructor:构造方法</p>
+<ul>
+<li><p>创建对象：</p>
+<ul>
+<li><p>T newInstance(Object… initargs)  </p>
+</li>
+<li><p>如果使用空参数构造方法创建对象，操作可以简化：Class对象的newInstance方法</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Method：方法对象</p>
+<ul>
+<li><p>执行方法：</p>
+<ul>
+<li>Object invoke(Object obj, Object… args)  </li>
+</ul>
+</li>
+<li><p>获取方法名称：</p>
+<ul>
+<li>String getName:获取方法名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h1><ul>
+<li><p>概念：说明程序的。给计算机看的</p>
+</li>
+<li><p>注释：用文字描述程序的。给程序员看的</p>
+</li>
+<li><p>定义：注解（Annotation），也叫元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这些元素进行说明，注释。</p>
+</li>
+<li><p>概念描述：</p>
+<ul>
+<li>JDK1.5之后的新特性</li>
+<li>说明程序的</li>
+<li>使用注解：@注解名称</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>作用分类：<br>  ①编写文档：通过代码里标识的注解生成文档【生成文档doc文档】<br>  ②代码分析：通过代码里标识的注解对代码进行分析【使用反射】<br>  ③编译检查：通过代码里标识的注解让编译器能够实现基本的编译检查【Override】</li>
+</ul>
+<ul>
+<li><p>JDK中预定义的一些注解</p>
+<ul>
+<li>@Override    ：检测被该注解标注的方法是否是继承自父类(接口)的</li>
+<li>@Deprecated：该注解标注的内容，表示已过时</li>
+<li>@SuppressWarnings：压制警告<ul>
+<li>一般传递参数all  @SuppressWarnings(“all”)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>自定义注解</p>
+<ul>
+<li><p>格式：<br>  元注解<br>  public @interface 注解名称{</p>
+<pre><code>  属性列表;</code></pre><p>  }</p>
+</li>
+<li><p>本质：注解本质上就是一个接口，该接口默认继承Annotation接口</p>
+<ul>
+<li>public interface MyAnno extends java.lang.annotation.Annotation {}</li>
+</ul>
+</li>
+<li><p>属性：接口中的抽象方法</p>
+<ul>
+<li><p>要求：</p>
+<ol>
+<li><p>属性的返回值类型有下列取值</p>
+<ul>
+<li>基本数据类型</li>
+<li>String</li>
+<li>枚举</li>
+<li>注解</li>
+<li>以上类型的数组</li>
+</ul>
+</li>
+<li><p>定义了属性，在使用时需要给属性赋值</p>
+<ol>
+<li>如果定义属性时，使用default关键字给属性默认初始化值，则使用注解时，可以不进行属性的赋值。</li>
+<li>如果只有一个属性需要赋值，并且属性的名称是value，则value可以省略，直接定义值即可。</li>
+<li>数组赋值时，值使用{}包裹。如果数组中只有一个值，则{}可以省略</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>元注解：用于描述注解的注解</p>
+<ul>
+<li>@Target：描述注解能够作用的位置<ul>
+<li>ElementType取值：<ul>
+<li>TYPE：可以作用于类上</li>
+<li>METHOD：可以作用于方法上</li>
+<li>FIELD：可以作用于成员变量上</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>@Retention：描述注解被保留的阶段<ul>
+<li>@Retention(RetentionPolicy.RUNTIME)：当前被描述的注解，会保留到class字节码文件中，并被JVM读取到</li>
+</ul>
+</li>
+<li>@Documented：描述注解是否被抽取到api文档中</li>
+<li>@Inherited：描述注解是否被子类继承</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>在程序使用(解析)注解：获取注解中定义的属性值</p>
+<ol>
+<li><p>获取注解定义的位置的对象  （Class，Method,Field）</p>
+</li>
+<li><p>获取指定的注解</p>
+<ul>
+<li><p>getAnnotation(Class)<br>//其实就是在内存中生成了一个该注解接口的子类实现对象</p>
+<pre><code>  public class ProImpl implements Pro{
+      public String className(){
+          return &quot;cn.itcast.annotation.Demo1&quot;;
+      }
+      public String methodName(){
+          return &quot;show&quot;;
+      }
+  }</code></pre></li>
+</ul>
+</li>
+<li><p>调用注解中的抽象方法获取配置的属性值</p>
+</li>
+</ol>
+</li>
+<li><p>小结：</p>
+<ol>
+<li>以后大多数时候，我们会使用注解，而不是自定义注解</li>
+<li>注解给谁用？<ol>
+<li>编译器</li>
+<li>给解析程序用</li>
+</ol>
+</li>
+<li>注解不是程序的一部分，可以理解为注解就是一个标签</li>
+</ol>
+</li>
+</ul>
+
             </div>
             <hr />
 
@@ -473,9 +812,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《article title》
+                    《Java高级知识》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/12/08/article-title/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/12/10/java-advance/" property="cc:attributionName"
                rel="cc:attributionURL">
                 浅安时光
             </a> 采用
@@ -516,7 +855,7 @@
         repo: 'lixuan789.github.io',
         owner: 'lixuan789',
         admin: "lixuan789",
-        id: '2019/12/08/article-title/',
+        id: '2019/12/10/java-advance/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -799,15 +1138,70 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2019/12/10/java-advance/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="Java高级知识">
+                        
+                        <span class="card-title">Java高级知识</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Java高级知识
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/" target="_blank">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/知识总结/" target="_blank">
+                        <span class="chip bg-color">知识总结</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2019/12/09/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Java基础知识点总结">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Java基础知识点总结">
                         
                         <span class="card-title">Java基础知识点总结</span>
                     </div>
@@ -819,9 +1213,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -846,41 +1240,6 @@
                     </a>
                     
                 </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/12/08/article-title/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="article title">
-                        
-                        <span class="card-title">article title</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-08
-                            </span>
-                        <span class="publish-author">
-                            
-                        </span>
-                    </div>
-                </div>
-
                 
             </div>
         </div>
@@ -1039,7 +1398,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">4.9k</span>
+            <span class="white-color">8k</span>
             
 
             <br>
