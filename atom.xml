@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lx1255.com/"/>
-  <updated>2019-12-11T09:48:43.764Z</updated>
+  <updated>2019-12-16T14:39:59.281Z</updated>
   <id>https://lx1255.com/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JDBC</title>
+    <link href="https://lx1255.com/2019/12/16/jdbc/"/>
+    <id>https://lx1255.com/2019/12/16/jdbc/</id>
+    <published>2019-12-16T14:07:11.000Z</published>
+    <updated>2019-12-16T14:39:59.281Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;JDBC：&quot;&gt;&lt;a href=&quot;#JDBC：&quot; class=&quot;headerlink&quot; title=&quot;JDBC：&quot;&gt;&lt;/a&gt;JDBC：&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;概念：Java DataBase Connectivity  Java 数据库连接，
+        
+      
+    
+    </summary>
+    
+      <category term="JDBC" scheme="https://lx1255.com/categories/JDBC/"/>
+    
+    
+      <category term="JDBC" scheme="https://lx1255.com/tags/JDBC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql</title>
+    <link href="https://lx1255.com/2019/12/16/mysql/"/>
+    <id>https://lx1255.com/2019/12/16/mysql/</id>
+    <published>2019-12-16T13:46:09.000Z</published>
+    <updated>2019-12-16T14:06:12.786Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;数据库的基本概念&quot;&gt;&lt;a href=&quot;#数据库的基本概念&quot; class=&quot;headerlink&quot; title=&quot;数据库的基本概念&quot;&gt;&lt;/a&gt;数据库的基本概念&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;数据库的英文单词： DataBase 简称 ：
+        
+      
+    
+    </summary>
+    
+      <category term="MySQL" scheme="https://lx1255.com/categories/MySQL/"/>
+    
+    
+      <category term="MySQL" scheme="https://lx1255.com/tags/MySQL/"/>
+    
+  </entry>
   
   <entry>
     <title>Java高级知识</title>
