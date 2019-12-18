@@ -283,7 +283,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -438,14 +438,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    3.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    14 分
                 </div>
                 
                 
@@ -827,10 +827,395 @@
 </ol>
 </li>
 </ol>
-<ul>
-<li><p>BOM</p>
+<h2 id="DOM简单学习：为了满足案例要求"><a href="#DOM简单学习：为了满足案例要求" class="headerlink" title="DOM简单学习：为了满足案例要求"></a>DOM简单学习：为了满足案例要求</h2><ul>
+<li><p>功能：控制html文档的内容</p>
 </li>
-<li><p>DOM</p>
+<li><p>获取页面标签(元素)对象：Element</p>
+<ul>
+<li>document.getElementById(“id值”):通过元素的id获取元素对象</li>
+</ul>
+</li>
+<li><p>操作Element对象：</p>
+<ol>
+<li>修改属性值：<ol>
+<li>明确获取的对象是哪一个？</li>
+<li>查看API文档，找其中有哪些属性可以设置</li>
+</ol>
+</li>
+<li>修改标签体内容：<ul>
+<li>属性：innerHTML</li>
+</ul>
+<ol>
+<li>获取元素对象</li>
+<li>使用innerHTML属性修改标签体内容</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="事件简单学习"><a href="#事件简单学习" class="headerlink" title="事件简单学习"></a>事件简单学习</h2><ul>
+<li><p>功能： 某些组件被执行了某些操作后，触发某些代码的执行。</p>
+<ul>
+<li>造句：  xxx被xxx,我就xxx<ul>
+<li>我方水晶被摧毁后，我就责备对友。</li>
+<li>敌方水晶被摧毁后，我就夸奖自己。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>如何绑定事件</p>
+<ol>
+<li><p>直接在html标签上，指定事件的属性(操作)，属性值就是js代码</p>
+<ol>
+<li>事件：onclick— 单击事件</li>
+</ol>
+</li>
+<li><p>通过js获取元素对象，指定事件属性，设置一个函数</p>
+</li>
+</ol>
+<ul>
+<li><p>代码：</p>
+<pre class="line-numbers language-html"><code class="language-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>light<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>img/off.gif<span class="token punctuation">"</span></span>  <span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fun();<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>light2<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>img/off.gif<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+          <span class="token keyword">function</span> <span class="token function">fun</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+              <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'我被点了'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'我又被点了'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+
+          <span class="token keyword">function</span> <span class="token function">fun2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+              <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'咋老点我？'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+
+          <span class="token comment" spellcheck="true">//1.获取light2对象</span>
+          <span class="token keyword">var</span> light2 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"light2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token comment" spellcheck="true">//2.绑定事件</span>
+          light2<span class="token punctuation">.</span>onclick <span class="token operator">=</span> fun2<span class="token punctuation">;</span>
+
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+</li>
+<li><p>案例1：电灯开关</p>
+<pre class="line-numbers language-html"><code class="language-html">  <span class="token doctype">&lt;!DOCTYPE html></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>电灯开关<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>light<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>img/off.gif<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+      <span class="token comment" spellcheck="true">/*
+          分析：
+              1.获取图片对象
+              2.绑定单击事件
+              3.每次点击切换图片
+                  * 规则：
+                      * 如果灯是开的 on,切换图片为 off
+                      * 如果灯是关的 off,切换图片为 on
+                  * 使用标记flag来完成
+
+          */</span>
+
+      <span class="token comment" spellcheck="true">//1.获取图片对象</span>
+      <span class="token keyword">var</span> light <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"light"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">var</span> flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//代表灯是灭的。 off图片</span>
+
+      <span class="token comment" spellcheck="true">//2.绑定单击事件</span>
+      light<span class="token punctuation">.</span>onclick <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+          <span class="token keyword">if</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//判断如果灯是开的，则灭掉</span>
+              light<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">"img/off.gif"</span><span class="token punctuation">;</span>
+              flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+          <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+              <span class="token comment" spellcheck="true">//如果灯是灭的，则打开</span>
+
+              light<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">"img/on.gif"</span><span class="token punctuation">;</span>
+              flag <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+
+      <span class="token punctuation">}</span>
+
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<hr>
+<h1 id="BOM"><a href="#BOM" class="headerlink" title="BOM:"></a>BOM:</h1><ol>
+<li><p>概念：Browser Object Model 浏览器对象模型</p>
+<ul>
+<li>将浏览器的各个组成部分封装成对象。</li>
+</ul>
+</li>
+<li><p>组成：</p>
+<ul>
+<li>Window：窗口对象</li>
+<li>Navigator：浏览器对象</li>
+<li>Screen：显示器屏幕对象</li>
+<li>History：历史记录对象</li>
+<li>Location：地址栏对象</li>
+</ul>
+</li>
+<li><p>Window：窗口对象</p>
+<ol>
+<li><p>创建</p>
+</li>
+<li><p>方法</p>
+<ol>
+<li><p>与弹出框有关的方法：<br>alert()    显示带有一段消息和一个确认按钮的警告框。<br>confirm()    显示带有一段消息以及确认按钮和取消按钮的对话框。</p>
+<ul>
+<li>如果用户点击确定按钮，则方法返回true</li>
+<li>如果用户点击取消按钮，则方法返回false<br>prompt()    显示可提示用户输入的对话框。</li>
+<li>返回值：获取用户输入的值</li>
+</ul>
+</li>
+<li><p>与打开关闭有关的方法：<br>close()    关闭浏览器窗口。</p>
+<ul>
+<li>谁调用我 ，我关谁<br>open()    打开一个新的浏览器窗口</li>
+<li>返回新的Window对象</li>
+</ul>
+</li>
+<li><p>与定时器有关的方式<br>setTimeout()    在指定的毫秒数后调用函数或计算表达式。</p>
+<ul>
+<li>参数：<ol>
+<li>js代码或者方法对象</li>
+<li>毫秒值</li>
+</ol>
+</li>
+<li>返回值：唯一标识，用于取消定时器<br>clearTimeout()    取消由 setTimeout() 方法设置的 timeout。</li>
+</ul>
+<p>setInterval()    按照指定的周期（以毫秒计）来调用函数或计算表达式。<br>clearInterval()    取消由 setInterval() 设置的 timeout。</p>
+</li>
+</ol>
+</li>
+<li><p>属性：</p>
+<ol>
+<li>获取其他BOM对象：<br> history<br> location<br> Navigator<br> Screen:</li>
+<li>获取DOM对象<br> document</li>
+</ol>
+</li>
+<li><p>特点</p>
+<ul>
+<li>Window对象不需要创建可以直接使用 window使用。 window.方法名();</li>
+<li>window引用可以省略。  方法名();</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>Location：地址栏对象</p>
+<ol>
+<li><p>创建(获取)：</p>
+<ol>
+<li>window.location</li>
+<li>location</li>
+</ol>
+</li>
+<li><p>方法：</p>
+<ul>
+<li>reload()    重新加载当前文档。刷新</li>
+</ul>
+</li>
+<li><p>属性</p>
+<ul>
+<li>href    设置或返回完整的 URL。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>History：历史记录对象</p>
+<ol>
+<li><p>创建(获取)：</p>
+<ol>
+<li>window.history</li>
+<li>history</li>
+</ol>
+</li>
+<li><p>方法：</p>
+<ul>
+<li>back()    加载 history 列表中的前一个 URL。</li>
+<li>forward()    加载 history 列表中的下一个 URL。</li>
+<li>go(参数)    加载 history 列表中的某个具体页面。<ul>
+<li>参数：<ul>
+<li>正数：前进几个历史记录</li>
+<li>负数：后退几个历史记录</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>属性：</p>
+<ul>
+<li>length    返回当前窗口历史列表中的 URL 数量。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h2 id="DOM："><a href="#DOM：" class="headerlink" title="DOM："></a>DOM：</h2><ul>
+<li><p>概念： Document Object Model 文档对象模型</p>
+<ul>
+<li>将标记语言文档的各个组成部分，封装为对象。可以使用这些对象，对标记语言文档进行CRUD的动态操作</li>
+</ul>
+</li>
+<li><p>W3C DOM 标准被分为 3 个不同的部分：</p>
+<ul>
+<li><p>核心 DOM - 针对任何结构化文档的标准模型</p>
+<ul>
+<li><p>Document：文档对象</p>
+</li>
+<li><p>Element：元素对象</p>
+</li>
+<li><p>Attribute：属性对象</p>
+</li>
+<li><p>Text：文本对象</p>
+</li>
+<li><p>Comment:注释对象</p>
+</li>
+<li><p>Node：节点对象，其他5个的父对象</p>
+</li>
+</ul>
+</li>
+<li><p>XML DOM - 针对 XML 文档的标准模型</p>
+</li>
+<li><p>HTML DOM - 针对 HTML 文档的标准模型</p>
+</li>
+</ul>
+</li>
+<li><p>核心DOM模型：</p>
+<ul>
+<li>Document：文档对象<ol>
+<li>创建(获取)：在html dom模型中可以使用window对象来获取<ol>
+<li>window.document</li>
+<li>document</li>
+</ol>
+</li>
+<li>方法：<ol>
+<li>获取Element对象：<ol>
+<li>getElementById()    ： 根据id属性值获取元素对象。id属性值一般唯一</li>
+<li>getElementsByTagName()：根据元素名称获取元素对象们。返回值是一个数组</li>
+<li>getElementsByClassName():根据Class属性值获取元素对象们。返回值是一个数组</li>
+<li>getElementsByName(): 根据name属性值获取元素对象们。返回值是一个数组</li>
+</ol>
+</li>
+<li>创建其他DOM对象：<br> createAttribute(name)<br> createComment()<br> createElement()<br> createTextNode()</li>
+</ol>
+</li>
+<li>属性</li>
+</ol>
+</li>
+<li>Element：元素对象<ol>
+<li>获取/创建：通过document来获取和创建</li>
+<li>方法：<ol>
+<li>removeAttribute()：删除属性</li>
+<li>setAttribute()：设置属性</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Node：节点对象，其他5个的父对象<ul>
+<li>特点：所有dom对象都可以被认为是一个节点</li>
+<li>方法：<ul>
+<li>CRUD dom树：<ul>
+<li>appendChild()：向节点的子节点列表的结尾添加新的子节点。</li>
+<li>removeChild()    ：删除（并返回）当前节点的指定子节点。</li>
+<li>replaceChild()：用新节点替换一个子节点。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>属性：<ul>
+<li>parentNode 返回节点的父节点。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>HTML DOM</p>
+<ol>
+<li>标签体的设置和获取：innerHTML</li>
+<li>使用html元素对象的属性</li>
+<li>控制元素样式<ol>
+<li>使用元素的style属性来设置<br> 如：<pre><code>     //修改样式方式1
+ div1.style.border = &quot;1px solid red&quot;;
+ div1.style.width = &quot;200px&quot;;
+ //font-size--&gt; fontSize
+ div1.style.fontSize = &quot;20px&quot;;</code></pre></li>
+<li>提前定义好类选择器的样式，通过元素的className属性来设置其class属性值。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="事件监听机制："><a href="#事件监听机制：" class="headerlink" title="事件监听机制："></a>事件监听机制：</h2><ul>
+<li><p>概念：某些组件被执行了某些操作后，触发某些代码的执行。    </p>
+<ul>
+<li>事件：某些操作。如： 单击，双击，键盘按下了，鼠标移动了</li>
+<li>事件源：组件。如： 按钮 文本输入框…</li>
+<li>监听器：代码。</li>
+<li>注册监听：将事件，事件源，监听器结合在一起。 当事件源上发生了某个事件，则触发执行某个监听器代码。</li>
+</ul>
+</li>
+<li><p>常见的事件：</p>
+<ol>
+<li><p>点击事件：</p>
+<ol>
+<li>onclick：单击事件</li>
+<li>ondblclick：双击事件</li>
+</ol>
+</li>
+<li><p>焦点事件</p>
+<ol>
+<li>onblur：失去焦点</li>
+<li>onfocus:元素获得焦点。</li>
+</ol>
+</li>
+<li><p>加载事件：</p>
+<ol>
+<li>onload：一张页面或一幅图像完成加载。</li>
+</ol>
+</li>
+<li><p>鼠标事件：</p>
+<ol>
+<li>onmousedown    鼠标按钮被按下。</li>
+<li>onmouseup    鼠标按键被松开。</li>
+<li>onmousemove    鼠标被移动。</li>
+<li>onmouseover    鼠标移到某元素之上。</li>
+<li>onmouseout    鼠标从某元素移开。</li>
+</ol>
+</li>
+<li><p>键盘事件：</p>
+<ol>
+<li>onkeydown    某个键盘按键被按下。    </li>
+<li>onkeyup        某个键盘按键被松开。</li>
+<li>onkeypress    某个键盘按键被按下并松开。</li>
+</ol>
+</li>
+<li><p>选择和改变</p>
+<ol>
+<li>onchange    域的内容被改变。</li>
+<li>onselect    文本被选中。</li>
+</ol>
+</li>
+<li><p>表单事件：</p>
+<ol>
+<li>onsubmit    确认按钮被点击。</li>
+<li>onreset    重置按钮被点击。</li>
+</ol>
+</li>
+</ol>
 </li>
 </ul>
 
@@ -1193,48 +1578,46 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/12/17/javascript/">
+                <a href="/2019/12/17/data-mining/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="JavaScript">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="数据挖掘期末复习">
                         
-                        <span class="card-title">JavaScript</span>
+                        <span class="card-title">数据挖掘期末复习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JavaScript基础知识
+                            数据挖掘期末复习
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-17
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-17
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/data-mining/" class="post-category" target="_blank">
+                                    data mining
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JavaScript/" target="_blank">
-                        <span class="chip bg-color">JavaScript</span>
+                    <a href="/tags/data-mining/" target="_blank">
+                        <span class="chip bg-color">data mining</span>
                     </a>
                     
                 </div>
@@ -1252,7 +1635,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="JDBC">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="JDBC">
                         
                         <span class="card-title">JDBC</span>
                     </div>
@@ -1445,7 +1828,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">21.3k</span>
+            <span class="white-color">24.1k</span>
             
 
             <br>
